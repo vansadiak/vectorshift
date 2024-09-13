@@ -13,7 +13,6 @@ export const TextNode = ({ id, data }) => {
   useEffect(() => {
     adjustTextareaSize();
     detectVariables();
-    // Update node internals when variables change
     updateNodeInternals(id);
   }, [currText, id, updateNodeInternals]);
 
@@ -42,12 +41,12 @@ export const TextNode = ({ id, data }) => {
       outputs={["output"]}
       inputs={variables}
     >
-      <div style={{ minWidth: "200px", padding: "10px" }}>
+      <div className="w-full min-w-[200px] p-2">
         <textarea
           ref={textareaRef}
           value={currText}
           onChange={handleTextChange}
-          style={{ width: "100%", resize: "none", overflow: "hidden" }}
+          className="w-full px-3 py-2 text-sm text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:focus:ring-blue-500 resize-none overflow-hidden"
         />
       </div>
     </BaseNode>

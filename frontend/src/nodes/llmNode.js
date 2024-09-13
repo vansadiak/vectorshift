@@ -9,8 +9,8 @@ export const LLMNode = ({ id, data }) => {
       inputs={["system", "prompt"]}
       outputs={["response"]}
     >
-      <div>
-        <span>This is a LLM.</span>
+      <div className="text-sm text-gray-600 dark:text-gray-400">
+        This is a Language Model.
       </div>
     </BaseNode>
   );
