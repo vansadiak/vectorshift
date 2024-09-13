@@ -94,15 +94,14 @@ export const PipelineUI = () => {
     },
     [reactFlowInstance]
   );
-
   const onDragOver = useCallback((event) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
   }, []);
 
   return (
-    <>
-      <div ref={reactFlowWrapper} style={{ width: "100wv", height: "70vh" }}>
+    <div className="w-full h-[70vh] bg-white dark:bg-gray-900">
+      <div ref={reactFlowWrapper} className="w-full h-full">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -116,12 +115,17 @@ export const PipelineUI = () => {
           proOptions={proOptions}
           snapGrid={[gridSize, gridSize]}
           connectionLineType="smoothstep"
+          className="dark:bg-gray-800"
         >
-          <Background color="#aaa" gap={gridSize} />
-          <Controls />
-          <MiniMap />
+          <Background
+            color="#aaa"
+            gap={gridSize}
+            className="dark:bg-gray-900 dark:text-gray-200"
+          />
+          <Controls className="dark:bg-gray-700 dark:text-gray-200" />
+          <MiniMap className="dark:bg-gray-700" />
         </ReactFlow>
       </div>
-    </>
+    </div>
   );
 };

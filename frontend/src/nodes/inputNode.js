@@ -19,14 +19,23 @@ export const InputNode = ({ id, data }) => {
 
   return (
     <BaseNode id={id} data={{ label: "Input" }} outputs={["value"]}>
-      <div>
-        <label>
-          Name:
-          <input type="text" value={currName} onChange={handleNameChange} />
+      <div className="space-y-2">
+        <label className="block">
+          <span className="text-gray-700 dark:text-gray-300">Name:</span>
+          <input
+            type="text"
+            value={currName}
+            onChange={handleNameChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          />
         </label>
-        <label>
-          Type:
-          <select value={inputType} onChange={handleTypeChange}>
+        <label className="block">
+          <span className="text-gray-700 dark:text-gray-300">Type:</span>
+          <select
+            value={inputType}
+            onChange={handleTypeChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          >
             <option value="Text">Text</option>
             <option value="File">File</option>
           </select>
