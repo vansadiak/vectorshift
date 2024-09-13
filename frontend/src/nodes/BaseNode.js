@@ -3,7 +3,7 @@ import { Handle, Position } from "reactflow";
 
 export const BaseNode = ({ id, data, children, inputs = [], outputs = [] }) => {
   return (
-    <div style={{ width: 200, height: 80, border: "1px solid black" }}>
+    <div style={{ border: "1px solid black", padding: "10px" }}>
       {inputs.map((input, index) => (
         <Handle
           key={`input-${index}`}
