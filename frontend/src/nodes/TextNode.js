@@ -2,16 +2,20 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { BaseNode } from "./BaseNode";
+import { useUpdateNodeInternals } from "reactflow";
 
 export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || "Something fun to do");
   const [variables, setVariables] = useState([]);
   const textareaRef = useRef(null);
+  const updateNodeInternals = useUpdateNodeInternals();
 
   useEffect(() => {
     adjustTextareaSize();
     detectVariables();
-  }, [currText]);
+    // Update node internals when variables change
+    updateNodeInternals(id);
+  }, [currText, id, updateNodeInternals]);
 
   const handleTextChange = (e) => {
     setCurrText(e.target.value);
